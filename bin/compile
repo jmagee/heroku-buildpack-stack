@@ -30,19 +30,19 @@ cp -Rp "$BUILD_DIR/." "$WORK_DIR"
 #mkdir -p "$WORK_DIR/vendor/bin"
 #mkdir -p "$WORK_DIR/vendor/ghc-libs"
 
-#PROFILE_DIR="$BUILD_DIR/.profile.d"
-#PROFILE_PATH="$PROFILE_DIR/stack.sh"
-#mkdir -p "$PROFILE_DIR"
+PROFILE_DIR="$BUILD_DIR/.profile.d"
+PROFILE_PATH="$PROFILE_DIR/stack.sh"
+mkdir -p "$PROFILE_DIR"
 
 # Usage: $ set-env key value
-#function set-env (){
-  #echo "export $1=$2" >> "$PROFILE_PATH"
-#}
+function set-env (){
+  echo "export $1=$2" >> "$PROFILE_PATH"
+}
 
-## Usage: $ set-default-env key value
-#function set-default-env (){
-  #echo "export $1=\${$1:-$2}" >> "$PROFILE_PATH"
-#}
+# Usage: $ set-default-env key value
+function set-default-env (){
+  echo "export $1=\${$1:-$2}" >> "$PROFILE_PATH"
+}
 
 export LANG=en_US.UTF-8
 export LIBRARY_PATH=/usr/lib:$LIBRARY_PATH
@@ -104,9 +104,9 @@ make install
 #fi
 
 # Set context environment variables.
-#set-env PATH "$WORK_DIR/.local/bin:$WORK_DIR/vendor/bin:\$PATH"
-#set-default-env LIBRARY_PATH "$WORK_DIR/vendor/ghc-libs:$WORK_DIR/vendor/lib:/usr/lib"
-#set-default-env LD_LIBRARY_PATH "$WORK_DIR/vendor/ghc-libs:$WORK_DIR/vendor/lib:/usr/lib"
+set-env PATH "$WORK_DIR/.local/bin:\$PATH"
+set-default-env LIBRARY_PATH "/usr/lib"
+set-default-env LD_LIBRARY_PATH "/usr/lib"
 
 speak "Making stack binaries available"
 #mkdir -p "$BUILD_DIR/vendor"
