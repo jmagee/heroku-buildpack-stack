@@ -115,7 +115,7 @@ mkdir -p "$BUILD_DIR/.local"
 mv "$WORK_DIR/.local/bin" "$BUILD_DIR/.local"
 mv "$WORK_DIR/config" "$BUILD_DIR/config"
 mv "$WORK_DIR/static" "$BUILD_DIR/static"
-mv "$WORK_DIR/.betitla.rc " "$BUILD_DIR/.betitla.rc"
+mv "$WORK_DIR/.betitla.rc" "$BUILD_DIR/.betitla.rc"
 
 #speak "Caching .stack-work"
 #rsync -avq "$WORK_DIR/.stack-work/" "$SANDBOX_DIR"
