@@ -116,7 +116,7 @@ mv "$WORK_DIR/.local/bin" "$BUILD_DIR/.local"
 mv "$WORK_DIR/config" "$BUILD_DIR/config"
 mv "$WORK_DIR/static" "$BUILD_DIR/static"
 mv "$WORK_DIR/.betitla.rc" "$BUILD_DIR/.betitla.rc"
-rsync -a "$WORK_DIR/Terms" "$BUILD_DIR/Terms"
+rsync -a "$WORK_DIR/Terms" "$BUILD_DIR"
 
 #speak "Caching .stack-work"
 #rsync -avq "$WORK_DIR/.stack-work/" "$SANDBOX_DIR"
